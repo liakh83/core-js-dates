@@ -95,8 +95,8 @@ function getNextFriday(date) {
  * 2, 2024 => 29
  */
 function getCountDaysInMonth(month, year) {
-  const newDate = new Date(year, month);
-  return newDate.getUTCDate();
+  const newDate = new Date(year, month, 0).getDate();
+  return newDate;
 }
 
 /**
@@ -178,10 +178,10 @@ function formatDate(date) {
  * 1, 2024 => 8
  */
 function getCountWeekendsInMonth(month, year) {
-  const dayInMonth = new Date(year, month, 0).getDate();
+  const dayInMonth = new Date(year, month, 0).getUTCDate();
   let weekends = 0;
   for (let day = 1; day <= dayInMonth; day += 1) {
-    const weekDay = new Date(year, month - 1, day).getDay();
+    const weekDay = new Date(year, month - 1, day).getUTCDay();
     if (weekDay === 0 || weekDay === 6) {
       weekends += 1;
     }
