@@ -178,10 +178,10 @@ function formatDate(date) {
  * 1, 2024 => 8
  */
 function getCountWeekendsInMonth(month, year) {
-  const dayInMonth = new Date(year, month, 0).getUTCDate();
+  const dayInMonth = new Date(year, month, 0).getDate();
   let weekends = 0;
   for (let day = 1; day <= dayInMonth; day += 1) {
-    const weekDay = new Date(year, month - 1, day).getUTCDay();
+    const weekDay = new Date(year, month - 1, day).getDay();
     if (weekDay === 0 || weekDay === 6) {
       weekends += 1;
     }
